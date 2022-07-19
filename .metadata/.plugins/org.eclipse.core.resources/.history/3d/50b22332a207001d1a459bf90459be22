@@ -1,0 +1,46 @@
+package aluraStickers;
+
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.awt.Font;
+import java.io.File;
+
+import javax.imageio.ImageIO;
+
+public class GeradoraDeFigurinhas {
+
+	public void cria() throws Exception {
+
+		// leitura da imagem
+		
+		BufferedImage imagemOriginal = ImageIO.read(new File("assets/filme1.jpg"));
+		
+		
+		// cria nova imagem em memoria com transparencia e com tamanho novo
+		int largura = imagemOriginal.getWidth();
+		int altura = imagemOriginal.getHeight();
+		int novaAltura = altura + 90;
+		BufferedImage novaImagem = new BufferedImage(largura, novaAltura, BufferedImage.TRANSLUCENT);
+		
+		// copiar a imagem original para novo imagem (em memória)
+		Graphics2D graphics = (Graphics2D) novaImagem.getGraphics();
+		graphics.drawImage(imagemOriginal, 0, 0, null);
+		
+		// configura fonte
+		var fonte = new Font(Font.SANS_SERIF, Font.BOLD, 20);
+		graphics.setFont(fonte);
+		
+		// escrever uma frase na nova imagem
+		graphics.drawString("TOPZERA", 18, novaAltura-40);
+		
+		// escrever a nova imagem em um arquivo
+		ImageIO.write(novaImagem, "png", new File("saida/figurinha"));
+		
+		
+	}
+	
+	public static void main(String[] args) throws Exception {
+		var geradora = new GeradoraDeFigurinhas();
+		geradora.cria();
+	}
+}
