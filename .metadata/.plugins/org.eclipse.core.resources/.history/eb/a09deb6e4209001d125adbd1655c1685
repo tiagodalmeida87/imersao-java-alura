@@ -1,0 +1,9 @@
+package aluraStickers;
+
+public class ClienteHttp {
+
+	pulbic String buscaDados(String url) {
+		
+	}
+	
+}
