@@ -19,7 +19,7 @@ public class App {
 		// ExtratorDeConteudo extrator = new ExtratorDeConteudoDaNasa();
 		
 		// Busca Lista API LocalHost
-		String url = "http://localhost:8080/linguagens";
+		String url = "https://linguagem-api-tiagoalmeida.herokuapp.com/linguagens";
 		ExtratorDeConteudo extrator = new ExtratorDeConteudoDeLinguagem();
 		
 		var http = new ClienteHttp();
@@ -30,7 +30,7 @@ public class App {
 				
 		var geradora = new GeradoraDeFigurinhas();
 		
-		for(int i = 0; i < 3; i++) {
+		for(int i = 0; i < 5; i++) {
 			
 			Conteudo conteudo = conteudos.get(i);
 						
